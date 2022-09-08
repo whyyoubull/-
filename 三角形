@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<math.h>
+#pragma warning(disable:4996)
+int main()
+{
+	double a, b, c, p, S, x, y, z;
+	scanf("%lf", &a);
+	scanf("%lf", &b);
+	scanf("%lf", &c);
+	{
+		if (a + b <= c || a + c <= b || b + c <= a) printf("不可以组成三角形");
+		else
+		{
+			printf("可以组成三角形");
+			p = (a + b + c) / 2;
+			S = p * (p - a) * (p - b) * (p - c);
+			x = (b * b) + (c * c);
+			y = (a * a) + (b * b);
+			z = (a * a) + (c * c);
+			printf(" 面积为%f\n", sqrt(S));//到这一步是计算面积
+			if (x < (a * a) || y < (c * c) || z < (b * b)) printf(" 是钝角三角形");
+			else
+			{
+				if (x == (a * a) || y == (c * c) || z == (b * b)) printf(" 是直角三角形");
+				else
+				printf(" 是锐角三角形");//这里是判断三角形类型
+			}
+		}
+		return 0;
+	}
+}
